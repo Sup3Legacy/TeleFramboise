@@ -39,8 +39,8 @@ Liste des commandes déjà implémentées et leur utilité:
 * ```/ping``` : Renvoie ```pong```. Sert à déterminer si le bot fonctionne.
 * ```/chat``` : Renvoie ```miaou```. Même utilité que ```/ping```
 * ```/help``` : Renvoie la liste des commandes disponibles + docstrings. Ces commandes sont classées par catégorie.
-* ```/stats``` : Renvoie des informations de base sur l'état du Raspberry : utilisatio net température du CPU, utilisation de la RAM
+* ```/stats``` : Renvoie des informations de base sur l'état du Raspberry : utilisation et température du CPU, utilisation de la RAM
 * ```/echo msg``` : Renvoie ```msg```
-* ```/wikisum -lang key_words``` : Fait une recherche Wikipédie avec comme mots-clés ```key_words``` et si un résultat est trouvé, renvoie une résumé de l'article. L'argument optionnel ```-lang``` sert à forcer l'utilisation d'une langue précisé, spécifiée par son [code](https://meta.wikimedia.org/wiki/List_of_Wikipedias)
-* ```/shutdown``` : Envoie dans une console la commande ```sudo shutdown now```. Nécessité l'authentificatio, ```admin```
-* ```/restart``` : Envoie dans une console la commande ```sudo restart now```. Nécessité l'authentificatio, ```admin```
+* ```/wikisum -lang key_words``` : Fait une recherche Wikipédia avec comme mots-clés ```key_words``` et si un résultat est trouvé, renvoie un résumé de l'article. L'argument optionnel ```-lang``` sert à forcer l'utilisation d'une langue précise, spécifiée par son [code](https://meta.wikimedia.org/wiki/List_of_Wikipedias)
+* ```/shutdown``` : Envoie dans une console la commande ```sudo shutdown now```. Nécessité l'authentification ```admin```
+* ```/restart``` : Envoie dans une console la commande ```sudo restart now```. Nécessité l'authentification ```admin```
