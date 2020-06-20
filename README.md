@@ -44,3 +44,8 @@ Liste des commandes déjà implémentées et leur utilité:
 * ```/wikisum -lang key_words``` : Fait une recherche Wikipédia avec comme mots-clés ```key_words``` et si un résultat est trouvé, renvoie un résumé de l'article. L'argument optionnel ```-lang``` sert à forcer l'utilisation d'une langue précise, spécifiée par son [code](https://meta.wikimedia.org/wiki/List_of_Wikipedias)
 * ```/shutdown``` : Envoie dans une console la commande ```sudo shutdown now```. Nécessité l'authentification ```admin```
 * ```/restart``` : Envoie dans une console la commande ```sudo restart now```. Nécessité l'authentification ```admin```
+
+## Pistes pour le futur
+Premièrement, je souhaiterais améliorer la **sécurité du système d'authentification**. En effet, il me semble plus sage, quand il est question de sécurité, de reposer sur un module Python éprouvé plutôt que sur mon propre système.
+
+Deuxièmement, je voudrais améliorer l'**intégration** de ce script Python, en donnant au bot la possibiltié d'agir sur les broches électroniques I/O du Raspberry,  ayant donc un accès à d'éventuels capteurs. De plus, j'envisage une intégration d'un **serveur FTP et/ou NAS**, permettant ainsi de gérer des paramètrages de ce serveur directement via le bot
