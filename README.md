@@ -1,6 +1,6 @@
-## TeleFramboise
+# TeleFramboise
 
-# Motivation
+## Motivation
 Ayant récemment fait l'acquisition d'un micro-ordinateur **Raspberry Pi 4**, je souhaite le convertir en serveur hébergeant des services comme :
 - Messagerie instantanée (comme Dialog ou MAtrix.org)
 - NAS
@@ -9,12 +9,12 @@ Ayant récemment fait l'acquisition d'un micro-ordinateur **Raspberry Pi 4**, je
 
 Pour gérer ces services, j'aurai besoin d'un accès à distance. Ce pendant, l'utilisation d'un tunnel **SSH** nécessiterait a priori la redirection de ports, ce qui n'est pas forcément possible. Pour pallier à ce problème, une solution est d'utiliser une application de messagerie instantanée, open source et suffisamment sécurisée et pourvue d'un API permettant la mise en place simple d'un bot et de son contrôle par des scripts Python. Mon choix s'est porté sur Telegram, application connue et réputée.
 
-# Implémentation
+## Implémentation
 J'utilise le module Python [Telepot](https://github.com/nickoala/telepot), qui permet de faire la passerelle entre un script Python et l'API de Telegram. J'utilise aussi le module [Wikipedia](https://github.com/goldsmith/Wikipedia) (cf. Fonctionnalités)
 
 Le script s'articule autour de la routine ```telepot.message_loop```, qui permet d'appeler une fonction à chaque message reçu. La fonction est, en l'occurence, la fonction ```handle``` qui, à la réception d'un message, le découpe et tente de reconnaître une commande (les commandes sont toutes de la forme ```/command```, par convention). Lorsqu'une commande est reconnue, sous réserve d'authentification de l'utilisateur et d'autorisation **admin** (cf. Sécurité), la fonction associée est appelée, avec le message découpé passé en argument. 
 
-# Gestion des commandes
+## Gestion des commandes
 Des commandes peuvent être ajoutées au bot en ajoutant tout simplement les fonctions correspondantes au script, précédées du décorateur 
 
 ```python 
@@ -23,7 +23,7 @@ commandHandler(nom, category = "Default", admin = False)
 
 Ce décorateur ajoute les fonctions au dictionnaire des commandes supportées et garde en mémoire leur catégorie (pour un annuaire des commandes plus structuré) et leur nécessité ou non d'une authentification admin.
 
-# Sécurité
+## Sécurité
 Le problème qui se pose est le suivant : les bots Telegram sont publics, ie. il est possible à tout utilisateur de les contacter et de les utiliser, ce qui n'est, dans mon cas, absolument pas souhaitable. Pour cela, j'ai déjà mis en place un système d'authentification rudimentaire, pour m'assurer que nul autre que moi ne puisse utiliser les commandes de mon bot.
 
 Premièrement, chaque message reçu, s'il n'émane pas d'une conversation ayant un certain ```id``` (en pratique l'```id``` associé à ma propre conversation avec le bot), ne peut déclencher de réponse du bot.
@@ -34,7 +34,7 @@ Par mesure de sécurité supplémentaire, toutes les 10 minutes, toutes les auto
 
 Néanmoins, le caractère public du bot pose un problème : je n'ai pas encore trovué de moyen d'éviter les attaques de type ```DDoS``` sur le bot, pouvant surcharger la capacité de traitement assez limité du Raspberry.
 
-# Fonctionnalités
+## Fonctionnalités
 Liste des commandes déjà implémentées et leur utilité:
 * ```/ping``` : Renvoie ```pong```. Sert à déterminer si le bot fonctionne.
 * ```/chat``` : Renvoie ```miaou```. Même utilité que ```/ping```
